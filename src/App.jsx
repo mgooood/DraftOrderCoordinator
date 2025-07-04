@@ -12,6 +12,7 @@ import SelectionConfirmation from './components/draft/SelectionConfirmation';
 // import SuccessScreen from './components/ui/SuccessScreen'; // No longer needed
 import PublicView from './components/ui/PublicView';
 
+
 function App() {
   const [coach, setCoach] = useState(null);
   const [selectedPosition, setSelectedPosition] = useState(null);

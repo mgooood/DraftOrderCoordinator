@@ -31,6 +31,24 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  transition: background 0.5s ease;
+}
+
+/* Theme: Default (current dark gradient) */
+body[data-theme="default"] {
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+}
+
+/* Theme: Football Field (green with yard lines) */
+body[data-theme="field"] {
+  background: 
+    linear-gradient(90deg, rgba(45,80,22,0.1) 0%, transparent 2%, transparent 98%, rgba(45,80,22,0.1) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(255,255,255,0.05) 10px),
+    radial-gradient(circle at center, #1a2e0a, #0a0a0a);
 }
 
 .container {

@@ -89,7 +89,8 @@ src/
 ## 🎨 UI/UX Decisions Made
 
 ### Design Philosophy
-- **Dark theme by default** with professional football colors
+- **Dark theme with football field background** for enhanced sports atmosphere
+- **Admin-controlled themes** (no user-facing switcher)
 - **Skeleton loading** for empty draft positions
 - **Clear visual hierarchy** with emojis and color coding
 - **Mobile-first responsive** design
@@ -99,6 +100,7 @@ src/
 - Coaches see **public view after selection** (not success screen)
 - **React state management** instead of page redirects
 - **Real-time updates** without page refreshes
+- **Football field background** for enhanced sports theme
 
 ## 🔧 Technical Decisions
 
@@ -108,6 +110,7 @@ src/
 - **Token in URL**: Simple magic link implementation
 - **Modular components**: Better maintainability and testing
 - **No Round 2 calculations**: Simplified, admin decides everything
+- **HTML data-attribute themes**: Simple admin control without UI complexity
 
 ### Security Model
 - **Magic links with long tokens** (64+ characters)
@@ -213,6 +216,7 @@ src/
 - Real-time draft order display
 - Mobile-responsive design
 - Modular, maintainable codebase
+- Admin-controlled theme system with football field background
 
 **What's Next:**
 - AWS integration for persistence and email automation

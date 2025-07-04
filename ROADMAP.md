@@ -54,6 +54,7 @@ Amazon SES (Email Service)
 - [x] Real-time draft order display with skeletons
 - [x] Dynamic support for any league size
 - [x] Mobile-responsive design
+- [x] Admin-controlled theme system with football field background
 
 ### 🚧 Phase 2: AWS Integration (IN PROGRESS)
 - [ ] AWS Amplify setup and deployment
@@ -102,6 +103,12 @@ Amazon SES (Email Service)
 - **Modern**: Latest React features and patterns
 - **Maintainable**: Component-based architecture
 - **Deployable**: Static build for Amplify hosting
+
+### Why HTML Data-Attribute Themes?
+- **Admin Control**: Simple one-line change in HTML
+- **No UI Clutter**: No user-facing theme switcher
+- **Professional**: Clean separation of admin vs user features
+- **Maintainable**: Easy to modify without code changes
 
 ## 🎯 Success Metrics
 
