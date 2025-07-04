@@ -1,0 +1,308 @@
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent: #00d4aa;
+  --accent-hover: #00b894;
+  --border: #404040;
+  --success: #00b894;
+  --success-bg: #1a4a3a;
+  --field-green: #2d5016;
+  --gold: #ffd700;
+  --silver: #c0c0c0;
+  --bronze: #cd7f32;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--field-green),
+    var(--accent),
+    var(--field-green)
+  );
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.draft-positions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.position-btn {
+  padding: 1.2rem;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.position-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 212, 170, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.position-btn:hover::before {
+  left: 100%;
+}
+
+.position-btn:hover {
+  border-color: var(--accent);
+  background: var(--bg-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3);
+}
+
+.position-btn.selected {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
+  transform: scale(1.05);
+}
+
+.position-btn:disabled {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  border-color: var(--border);
+  opacity: 0.5;
+}
+
+.position-btn.taken {
+  background: #4a1a1a;
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.position-btn.taken:hover {
+  background: #4a1a1a;
+  transform: none;
+  box-shadow: none;
+  border-color: #ff6b6b;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 212, 170, 0.4);
+}
+
+.btn-primary:disabled {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.status {
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  text-align: center;
+  position: relative;
+}
+
+.status.success {
+  background: var(--success-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--success);
+  box-shadow: 0 0 20px rgba(0, 184, 148, 0.3);
+}
+
+/* .status.success::before {
+  content: '🏆';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  background: var(--bg-card);
+  padding: 0.5rem;
+  border-radius: 50%;
+} */
+
+.coach-info {
+  background: var(--bg-secondary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+.coach-info::before {
+  content: '🏈';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.last-season-standings {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+}
+
+.standings-title {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.standings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.coach-card {
+  background: var(--bg-card);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  text-align: center;
+  position: relative;
+}
+
+.coach-card.champion {
+  border-color: var(--gold);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.coach-card.runner-up {
+  border-color: var(--silver);
+  box-shadow: 0 0 15px rgba(192, 192, 192, 0.3);
+}
+
+.coach-card.third {
+  border-color: var(--bronze);
+  box-shadow: 0 0 15px rgba(205, 127, 50, 0.3);
+}
+
+.coach-card.current-user {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 212, 170, 0.4);
+  transform: scale(1.02);
+}
+
+.coach-rank {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.coach-name {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.team-name {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.medal {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 1.5rem;
+}
