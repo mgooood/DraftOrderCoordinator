@@ -7,8 +7,7 @@ import Container from './components/layout/Container';
 import Header from './components/layout/Header';
 import CoachInfo from './components/coach/CoachInfo';
 import LastSeasonStandings from './components/standings/LastSeasonStandings';
-import DraftPositionSelector from './components/draft/DraftPositionSelector';
-import SelectionConfirmation from './components/draft/SelectionConfirmation';
+import DraftSelectionContainer from './components/draft/DraftSelectionContainer';
 // import SuccessScreen from './components/ui/SuccessScreen'; // No longer needed
 import PublicView from './components/ui/PublicView';
 
@@ -114,16 +113,13 @@ function App() {
     <Container>
       <Header title='🏈 Draft Order Coordinator' />
       <CoachInfo coach={coach} showPriority={true} />
-      <DraftPositionSelector
+      <DraftSelectionContainer
         selectedPosition={selectedPosition}
         onPositionSelect={handlePositionSelect}
-        disabled={coach?.hasSelected}
-        takenPositions={takenPositions}
-      />
-      <SelectionConfirmation
-        selectedPosition={selectedPosition}
         onSubmit={handleSubmit}
         isSubmitting={isSubmitting}
+        disabled={coach?.hasSelected}
+        takenPositions={takenPositions}
       />
       <LastSeasonStandings standings={standings} />
     </Container>

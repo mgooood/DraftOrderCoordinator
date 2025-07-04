@@ -2,14 +2,7 @@ export default function SelectionConfirmation({ selectedPosition, onSubmit, isSu
   if (!selectedPosition) return null;
 
   return (
-    <div style={{ 
-      textAlign: 'center', 
-      margin: '2rem 0', 
-      padding: '1.5rem', 
-      background: 'var(--bg-secondary)', 
-      borderRadius: '12px', 
-      border: '1px solid var(--border)' 
-    }}>
+    <div className="selection-confirmation">
       <p style={{fontSize: '1.2rem', marginBottom: '1rem'}}>
         🎯 You selected position <strong style={{color: 'var(--accent)'}}>#{selectedPosition}</strong>
       </p>

@@ -35,7 +35,7 @@ body {
 }
 
 /* Theme: Default (current dark gradient) */
-body[data-theme="default"] {
+body[data-theme='default'] {
   background: linear-gradient(
     135deg,
     var(--bg-primary) 0%,
@@ -44,10 +44,20 @@ body[data-theme="default"] {
 }
 
 /* Theme: Football Field (green with yard lines) */
-body[data-theme="field"] {
-  background: 
-    linear-gradient(90deg, rgba(45,80,22,0.1) 0%, transparent 2%, transparent 98%, rgba(45,80,22,0.1) 100%),
-    repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(255,255,255,0.05) 10px),
+body[data-theme='field'] {
+  background: linear-gradient(
+      90deg,
+      rgba(45, 80, 22, 0.1) 0%,
+      transparent 2%,
+      transparent 98%,
+      rgba(45, 80, 22, 0.1) 100%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 9px,
+      rgba(255, 255, 255, 0.05) 10px
+    ),
     radial-gradient(circle at center, #1a2e0a, #0a0a0a);
 }
 
@@ -323,4 +333,95 @@ h1 {
   top: -8px;
   right: -8px;
   font-size: 1.5rem;
+}
+
+/* Draft Selection Container - Unified Visual Treatment */
+.draft-selection-container {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* Remove individual container styling from draft positions */
+.draft-selection-container .draft-positions {
+  background: transparent;
+  border: none;
+  margin: 0 0 1.5rem 0;
+  padding: 0;
+}
+
+/* Selection confirmation styling within container */
+.selection-confirmation {
+  text-align: center;
+  padding: 1rem 0 0 0;
+  border-top: 1px solid var(--border);
+}
+
+/* Mobile Draft Selection Optimizations */
+@media (max-width: 768px) {
+  /* Reduce button padding significantly */
+  .position-btn {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  /* Compact button content - put number and text on same line */
+  .position-btn > div {
+    display: inline;
+    margin-left: 0.25rem;
+  }
+
+  /* Hide taken positions on mobile to save space */
+  .position-btn.taken {
+    display: none;
+  }
+
+  /* Tighter grid spacing on mobile */
+  .draft-positions {
+    gap: 0.75rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+  }
+
+  /* Reduce container padding */
+  .draft-selection-container {
+    margin: 1rem 0;
+    padding: 1rem;
+  }
+
+  /* Compact title section - remove top padding */
+  .draft-selection-container h2 {
+    margin: 0 0 1rem 0;
+  }
+
+  /* Reduce confirmation section padding */
+  .selection-confirmation {
+    padding: 0.5rem 0 0 0;
+  }
+
+  /* Smaller confirmation text */
+  .selection-confirmation p {
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Compact button */
+  .selection-confirmation .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Reduce coach info padding */
+  .coach-info {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Reduce container margins */
+  .container {
+    margin: 1rem auto;
+    padding: 1.5rem;
+  }
 }
