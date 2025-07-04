@@ -1,3 +1,5 @@
+import CoachName from '../ui/CoachName';
+
 export default function CoachCard({ coach }) {
   const getCardClass = () => {
     let classes = 'coach-card';
@@ -16,7 +18,9 @@ export default function CoachCard({ coach }) {
         </div>
       )}
       <div className="coach-rank">#{coach.rank}</div>
-      <div className="coach-name">{coach.name}</div>
+      <div className="coach-name">
+        <CoachName firstName={coach.firstName} lastName={coach.lastName} />
+      </div>
       <div className="team-name">{coach.team}</div>
       {coach.isCurrentUser && (
         <div style={{marginTop: '0.5rem', fontSize: '0.8rem', color: 'var(--accent)'}}>

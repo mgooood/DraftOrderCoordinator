@@ -112,7 +112,7 @@ function App() {
   return (
     <Container>
       <Header title='🏈 Draft Order Coordinator' />
-      <CoachInfo coach={coach} showPriority={true} />
+      <CoachInfo coach={coach} />
       <DraftSelectionContainer
         selectedPosition={selectedPosition}
         onPositionSelect={handlePositionSelect}

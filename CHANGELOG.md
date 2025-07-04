@@ -22,6 +22,9 @@ All notable changes to the Draft Order Coordinator project will be documented in
 - Combined DraftPositionSelector and SelectionConfirmation into unified container
 - Reverted from complex sequential column layout to natural grid flow
 - Fine-tuned mobile spacing for better visual balance
+- Removed redundant showPriority prop and messaging
+- Restructured name field into firstName/lastName with CoachName component
+- Added mobile-friendly name display (first name only in compact views)
 
 ### Technical Decisions
 - Used localStorage for temporary data persistence (will migrate to AWS DynamoDB)
@@ -40,11 +43,15 @@ All notable changes to the Draft Order Coordinator project will be documented in
 - Unified draft selection container for better mobile UX
 - Mobile-optimized position buttons (smaller, touch-friendly)
 - Hidden taken positions on mobile to reduce vertical space
+- CoachName component for flexible name display (full name vs first name only)
+- Component tests for CoachName functionality
 - Fine-tuned mobile spacing: increased draft-positions gap to 0.75rem, reduced title margin to 0
 
 ### Fixed
 - Coaches who complete selection now see updated PublicView with current draft order and next picker
 - Removed SuccessScreen in favor of seamless public view transition
+- Removed misleading "priority pick selection" messaging from coach info
+- Fixed coach info text alignment to be center-aligned
 
 ### Known Issues
 - Token expiration not yet implemented (requires backend integration)

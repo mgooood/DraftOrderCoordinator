@@ -2,6 +2,7 @@ import {
   LAST_SEASON_STANDINGS,
   AVAILABLE_POSITIONS,
 } from '../../data/mockData';
+import CoachName from '../ui/CoachName';
 
 export default function CurrentDraftOrder() {
   const selections = JSON.parse(
@@ -84,7 +85,7 @@ export default function CurrentDraftOrder() {
                 </div>
                 <div>
                   <div style={{ fontWeight: '600', fontSize: '0.9rem' }}>
-                    {coach.name}
+                    <CoachName firstName={coach.firstName} lastName={coach.lastName} variant="first" />
                   </div>
                   <div
                     style={{

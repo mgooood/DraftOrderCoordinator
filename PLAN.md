@@ -148,11 +148,18 @@ src/
 
 ## 📋 Implementation Priority
 
-### Phase 2A: Basic AWS Setup
+### Phase 2A: Basic AWS Setup (~90 minutes total)
 1. Deploy React app to Amplify
-2. Create DynamoDB tables (coaches, selections, tokens)
-3. Build Lambda functions for core operations
+2. Create single DynamoDB table: `draft-order-coaches` (partition key: rank)
+3. Build Lambda functions for core operations (read coaches, update selections)
 4. Replace localStorage with API calls
+5. One-time data migration from mockData.js to DynamoDB
+
+**DynamoDB Setup Details:**
+- **Complexity**: 2/10 (Very Simple)
+- **Table structure**: Single table with coach data
+- **Operations needed**: scan (read all), update (set selection)
+- **Cost**: $0 (well within 25GB + 200M requests free tier)
 
 ### Phase 2B: Email Automation
 1. Configure SES for email sending
@@ -225,6 +232,19 @@ src/
 - Production deployment and testing
 
 **Ready for AWS Integration:** The frontend is complete and ready to connect to AWS services. The modular architecture makes it easy to swap localStorage for API calls.
+
+**DynamoDB Migration Plan:**
+- Simple table structure matches existing coach data model
+- Minimal code changes needed (just swap localStorage calls for DynamoDB calls)
+- Zero configuration required - DynamoDB is fully managed
+- Setup time: ~90 minutes including testing
+
+**Testing Implementation Plan:**
+- **Phase 1**: Utils testing (tokenUtils, selectionUtils, draftStatusUtils) - Start here
+- **Phase 2**: Component testing (PositionButton, CurrentDraftOrder)
+- **Phase 3**: Integration testing (full user flows)
+- **Stack**: Jest + React Testing Library + @testing-library/user-event
+- **Total effort**: ~7 hours, high impact on code quality
 
 ---
 

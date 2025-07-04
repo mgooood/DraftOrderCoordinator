@@ -1,4 +1,5 @@
 import { getDraftStatus } from '../../utils/draftStatusUtils';
+import CoachName from './CoachName';
 
 export default function CurrentPicker({ currentCoach }) {
   const draftStatus = getDraftStatus();
@@ -16,7 +17,7 @@ export default function CurrentPicker({ currentCoach }) {
         }}
       >
         <h2 style={{ color: 'var(--text-secondary)', marginBottom: '1rem' }}>
-          📫 Draft Selection Not Started
+          📫 Draft Position Selection Not Started
         </h2>
         <p style={{ color: 'var(--text-secondary)' }}>
           The commissioner will send out email with links to coaches when it's
@@ -73,7 +74,7 @@ export default function CurrentPicker({ currentCoach }) {
           marginBottom: '0.5rem',
         }}
       >
-        {currentCoach.name}
+        <CoachName firstName={currentCoach.firstName} lastName={currentCoach.lastName} />
       </div>
       <div
         style={{

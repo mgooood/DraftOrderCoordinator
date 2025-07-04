@@ -58,10 +58,12 @@ Amazon SES (Email Service)
 
 ### 🚧 Phase 2: AWS Integration (IN PROGRESS)
 - [ ] AWS Amplify setup and deployment
-- [ ] DynamoDB schema design and implementation
-- [ ] Lambda functions for core business logic
-- [ ] API Gateway endpoints
-- [ ] Environment configuration
+- [ ] DynamoDB table creation: `draft-order-coaches` (partition key: rank) - 10 minutes
+- [ ] Lambda functions for core business logic (read/update coaches) - 30 minutes
+- [ ] API Gateway endpoints - 20 minutes
+- [ ] Frontend integration (replace localStorage) - 20 minutes
+- [ ] One-time data migration from mockData.js - 10 minutes
+- **Total Phase 2 Estimate: ~90 minutes**
 
 ### 📅 Phase 3: Email Automation (PLANNED)
 - [ ] Amazon SES configuration and verification
@@ -77,6 +79,13 @@ Amazon SES (Email Service)
 - [ ] Draft reset and override capabilities
 - [ ] System monitoring and logs
 
+### 📅 Phase 4.5: Testing Implementation (PLANNED)
+- [ ] Setup testing environment (Jest + React Testing Library)
+- [ ] Phase 1: Utils testing (tokenUtils, selectionUtils, draftStatusUtils) - 2 hours
+- [ ] Phase 2: Component testing (PositionButton, CurrentDraftOrder) - 3 hours
+- [ ] Phase 3: Integration testing (full user flows) - 2 hours
+- **Total Testing Effort: ~7 hours**
+
 ### 📅 Phase 5: Polish & Production (PLANNED)
 - [ ] Comprehensive error handling
 - [ ] Performance optimization
@@ -87,10 +96,11 @@ Amazon SES (Email Service)
 ## 🎛️ Technical Decisions
 
 ### Why Serverless?
-- **Cost**: Free tier covers 10-15 users easily
+- **Cost**: Free tier covers 10-15 users easily (DynamoDB: 25GB + 200M requests/month)
 - **Scalability**: Handles seasonal usage patterns
 - **Maintenance**: No server management required
 - **Reliability**: AWS handles infrastructure
+- **Setup Simplicity**: DynamoDB requires zero configuration, fully managed
 
 ### Why Magic Links?
 - **Security**: No passwords to manage or forget
@@ -151,11 +161,12 @@ Amazon SES (Email Service)
 ## 💰 Cost Projections
 
 ### Year 1 (AWS Free Tier)
-- **Hosting**: $0 (Amplify free tier)
-- **Database**: $0 (DynamoDB free tier)
-- **Email**: $0 (SES free tier)
-- **Functions**: $0 (Lambda free tier)
+- **Hosting**: $0 (Amplify free tier: 1K build minutes + 5GB storage)
+- **Database**: $0 (DynamoDB free tier: 25GB storage + 200M requests)
+- **Email**: $0 (SES free tier: 200 emails/day from Lambda)
+- **Functions**: $0 (Lambda free tier: 1M requests + 400K GB-seconds)
 - **Domain**: ~$12/year (optional)
+- **Your Usage**: Well within all free tier limits
 
 ### Year 2+ (Post Free Tier)
 - **Estimated**: $5-15/year for 10-15 users

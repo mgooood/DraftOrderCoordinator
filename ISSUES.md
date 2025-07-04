@@ -37,10 +37,10 @@ This file tracks known issues, bugs, and technical debt that we're aware of but 
 - **No logging** - No error tracking or analytics
 - **CSS Architecture Debt** - Desktop-first approach instead of mobile-first creates maintenance burden
 
-### Testing
-- **No unit tests** - No test coverage for components or utilities
-- **No integration tests** - No testing of user flows
-- **No error scenario testing** - Haven't tested failure cases
+### Testing (Moving to Planned Development)
+- **Testing implementation planned** - 7-hour effort across 3 phases
+- **Starting with utils testing** - tokenUtils, selectionUtils, draftStatusUtils
+- **Jest + React Testing Library** - Modern testing stack selected
 
 ## 🚀 Future Improvements
 
@@ -66,7 +66,7 @@ This file tracks known issues, bugs, and technical debt that we're aware of but 
 
 ### 🔴 High Priority (Blocks Production)
 - Token expiration system
-- Server-side data persistence
+- Server-side data persistence (DynamoDB migration: ~90 minutes)
 - Error handling for network failures
 
 ### 🟠 Architecture Debt (Should Address)
@@ -76,6 +76,7 @@ This file tracks known issues, bugs, and technical debt that we're aware of but 
 - Multiple device access handling
 - Loading states and user feedback
 - Code cleanup (remove commented imports)
+- **Testing implementation** - Start with Phase 1 utils testing
 
 ### 🟢 Low Priority (Nice to Have)
 - Unit test coverage
@@ -87,6 +88,7 @@ This file tracks known issues, bugs, and technical debt that we're aware of but 
 ## 📝 Notes
 
 - Most issues will be resolved when we implement AWS backend
+- **DynamoDB Migration**: Simple 90-minute task, zero configuration required
 - Some issues are acceptable for MVP but should be addressed for production
 - **CSS Architecture**: Desktop-first approach was used instead of mobile-first, creating maintenance debt
 - Mobile-first refactor would require 4-6 hours and carries high regression risk
